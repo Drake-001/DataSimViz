@@ -62,3 +62,30 @@ def plan_category(data_usage, voice_call_minutes, text_messages):
         return "Unlimited"
     else:
         return "Basic"
+
+# For loop to iterate through each month, randomly, assigning data values
+for month in months:
+
+    # Simulate data usage between 0.1GB to 1000GB
+    data_usage = np.random.uniform(0.1, 1000, num_users)
+
+    # Simulate voice call minutes between 0 to 3000 minutes
+    voice_call_minutes = np.random.randint(0, 3001, num_users)
+
+    # Simulate text messages between 0 to 5000
+    text_messages = np.random.randint(0, 5001, num_users)
+
+    # Initialize empty list for plan categories
+    plan_categories = []
+
+    # For loop iterates through 'ith' index of each data category
+    for i in range(num_users):
+        user_data_usage = data_usage[i]
+        user_voice_call_minutes = voice_call_minutes[i]
+        user_text_messages = text_messages[i]
+
+        # Calls function with variable
+        user_plan_categories = plan_category(user_data_usage, user_voice_call_minutes, user_text_messages)
+
+        # Appends function call variable to plan_categories list
+        plan_categories.append(user_plan_categories)
