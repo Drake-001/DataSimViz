@@ -117,7 +117,7 @@ messages for the telecom users.
 
 import pandas as pd
 
-# Convert monthly_usage_data array into DataFrame for easier data manipulation
+# Convert monthly_usage_data array into DataFrame for more efficient data manipulation
 column_names = ["userName", "monthYear", "dataUsage", "voiceCallMinutes", "textMessages", "planCategory"]  
 df = pd.DataFrame(monthly_usage_data, columns=column_names)
 
