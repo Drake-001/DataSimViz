@@ -89,3 +89,16 @@ for month in months:
 
         # Appends function call variable to plan_categories list
         plan_categories.append(user_plan_categories)
+        
+# Stacks 1D arrays into 2D arrays of columns, and each row represents users values for that month
+    month_data = np.column_stack((user_names, [month]*num_users, data_usage, voice_call_minutes, text_messages, plan_categories))
+    
+    # Appends month_data to monthly_usage_data
+    monthly_usage_data.append(month_data)   
+
+# stacks 2D arrays vertically into a single 2D array
+monthly_usage_data = np.vstack(monthly_usage_data) 
+
+# Print a summary or sample of the complete dataset
+print("\nComplete Data Sample:")
+print(monthly_usage_data[:10])
