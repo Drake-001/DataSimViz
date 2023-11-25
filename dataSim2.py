@@ -1,11 +1,13 @@
 """
-Telecom User Data Simulator:
+Telecom User Data Simulator with Visualizations:
 
 This script generates simulated data for telecom users, including user profiles 
 and their monthly usage data, including data consumption, voice call minutes, and 
 text messages over the year 2024.
+
 """
 
+# DATA SIMULATION
 import numpy as np
 
 # Assign 1,000 simulated user profiles
@@ -102,3 +104,53 @@ monthly_usage_data = np.vstack(monthly_usage_data)
 # Print a summary or sample of the complete dataset
 print("\nComplete Data Sample:")
 print(monthly_usage_data[:10])
+
+
+# DATA VISUALIZATION
+"""
+This section converts the simulated telecom user data into a pandas DataFrame for easier manipulation. 
+Then it converts specific columns from strings to numeric types for accurate analysis. Finally, it 
+uses matplotlib to create histograms that visualize the distribution of data usage, voice call minutes, and text 
+messages for the telecom users.
+
+"""
+
+import pandas as pd
+
+# Convert monthly_usage_data array into DataFrame for easier data manipulation
+column_names = ["userName", "monthYear", "dataUsage", "voiceCallMinutes", "textMessages", "planCategory"]  
+df = pd.DataFrame(monthly_usage_data, columns=column_names)
+
+# Convert monthly_usage_data from strings to numeric types for accurate numerical analysis
+df["dataUsage"] = pd.to_numeric(df["dataUsage"])
+df["voiceCallMinutes"] = pd.to_numeric(df["voiceCallMinutes"])
+df["textMessages"] = pd.to_numeric(df["textMessages"])
+
+import matplotlib.pyplot as plt
+
+# Histogram for dataUsage
+df["dataUsage"].hist(bins=20, ec= "black")
+plt.title("Data Usage Distribution")
+plt.xlabel("Data Usage (GB)")
+plt.ylabel("Frequency")
+plt.show()
+
+# Histogram for voiceCallMinutes
+df["voiceCallMinutes"].hist(bins=20, ec= "black")
+plt.title("Voice Call Minutes Distribution")
+plt.xlabel("Voice Call Minutes")
+plt.ylabel("Frequency")
+plt.show()
+
+# Histogram for textMessages
+df["textMessages"].hist(bins=20, ec= "black")        
+plt.title("Text Messages Distribution")
+plt.xlabel("Text Messages")
+plt.ylabel("Frequency")
+plt.show()
+
+
+
+
+
+
