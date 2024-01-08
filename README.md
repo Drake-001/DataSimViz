@@ -4,13 +4,12 @@ TITLE:
 DESCRIPTION:
   This Python script generates simulated data for telecom users, including user profiles and their monthly usage data for the year 2024. The data encompasses various aspects such as data consumption, voice call minutes, and text messages. This project is ideal for those looking to analyze telecom data or test data processing and visualization tools.
 
-GETTING STARTED:
-  Dependencies
-    Python 3.x
-    NumPy
-    Pandas
-    Matplotlib
-  Ensure you have these libraries installed to run the script successfully.
+DEPENDENCIES:
+  Python 3.x,
+  NumPy,
+  Pandas,
+  Matplotlib
+
 
 INSTALLING:
   Clone the repository or download the script to your local machine.
